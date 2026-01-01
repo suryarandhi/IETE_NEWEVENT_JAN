@@ -2,9 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
+    <!-- Mobile & App-like behavior -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0e1a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+
     <title>IETE Event Coming Soon</title>
+
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&family=Bungee&family=Russo+One&display=swap" rel="stylesheet">
+
     <style>
         * {
             margin: 0;
@@ -31,7 +40,7 @@
             box-shadow: 0 40px 100px rgba(0, 0, 0, 0.9);
         }
 
-        /* Animated grid background */
+        /* ================= BACKGROUND ================= */
         .grid-bg {
             position: absolute;
             width: 100%;
@@ -42,15 +51,13 @@
             background-size: 40px 40px;
             animation: gridScroll 20s linear infinite;
             transform: perspective(500px) rotateX(60deg) scale(2);
-            transform-origin: center center;
         }
 
         @keyframes gridScroll {
-            0% { transform: perspective(500px) rotateX(60deg) scale(2) translateY(0); }
-            100% { transform: perspective(500px) rotateX(60deg) scale(2) translateY(40px); }
+            from { transform: perspective(500px) rotateX(60deg) scale(2) translateY(0); }
+            to { transform: perspective(500px) rotateX(60deg) scale(2) translateY(40px); }
         }
 
-        /* Glowing orbs and energy effects */
         .energy-orb {
             position: absolute;
             border-radius: 50%;
@@ -90,15 +97,14 @@
             50% { transform: scale(1.2); opacity: 0.5; }
         }
 
-        /* Scan lines effect */
         .scanlines {
             position: absolute;
             width: 100%;
             height: 100%;
             background: repeating-linear-gradient(
                 0deg,
-                rgba(0, 0, 0, 0.15),
-                rgba(0, 0, 0, 0.15) 1px,
+                rgba(0,0,0,0.15),
+                rgba(0,0,0,0.15) 1px,
                 transparent 1px,
                 transparent 2px
             );
@@ -106,43 +112,32 @@
             opacity: 0.3;
         }
 
-        /* Header section */
+        /* ================= HEADER ================= */
         .header {
-            position: relative;
             padding: 50px 60px 30px;
             text-align: center;
-            background: linear-gradient(180deg, rgba(16, 185, 129, 0.1) 0%, transparent 100%);
-            border-bottom: 2px solid rgba(16, 185, 129, 0.3);
-            z-index: 10;
+            border-bottom: 2px solid rgba(16,185,129,0.3);
         }
 
         .institution-name {
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Orbitron';
             font-size: 38px;
-            font-weight: 900;
             color: #fff;
-            text-transform: uppercase;
             letter-spacing: 4px;
-            margin-bottom: 10px;
-            text-shadow: 0 0 30px rgba(16, 185, 129, 0.6);
         }
 
         .institution-subtitle {
             font-size: 18px;
             color: #10b981;
             letter-spacing: 3px;
-            text-transform: uppercase;
-            font-weight: 600;
         }
 
         .institution-detail {
             font-size: 14px;
             color: #6ee7b7;
             margin-top: 8px;
-            letter-spacing: 1px;
         }
 
-        /* IETE Club badge */
         .club-badge {
             position: absolute;
             top: 230px;
@@ -152,325 +147,173 @@
             padding: 15px 50px;
             border-radius: 50px;
             border: 3px solid #6ee7b7;
-            box-shadow: 
-                0 0 40px rgba(16, 185, 129, 0.6),
-                inset 0 0 20px rgba(255, 255, 255, 0.2);
-            animation: badgeGlow 2s ease-in-out infinite;
-            z-index: 15;
-        }
-
-        @keyframes badgeGlow {
-            0%, 100% { box-shadow: 0 0 40px rgba(16, 185, 129, 0.6), inset 0 0 20px rgba(255, 255, 255, 0.2); }
-            50% { box-shadow: 0 0 60px rgba(16, 185, 129, 0.9), inset 0 0 30px rgba(255, 255, 255, 0.3); }
+            box-shadow: 0 0 40px rgba(16,185,129,0.7);
         }
 
         .club-badge-text {
-            font-family: 'Russo One', sans-serif;
+            font-family: 'Russo One';
             font-size: 32px;
             color: #fff;
-            text-transform: uppercase;
             letter-spacing: 4px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
-        /* Main content */
+        /* ================= CONTENT ================= */
         .main-content {
-            position: relative;
             padding: 120px 60px 80px;
             text-align: center;
-            z-index: 10;
         }
 
-        /* Coming Soon text */
         .coming-soon {
-            font-family: 'Bungee', cursive;
+            font-family: 'Bungee';
             font-size: 140px;
-            font-weight: 900;
-            background: linear-gradient(135deg, #10b981 0%, #6ee7b7 50%, #10b981 100%);
+            background: linear-gradient(135deg, #10b981, #6ee7b7);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-transform: uppercase;
             letter-spacing: 10px;
-            line-height: 1.1;
-            margin-bottom: 30px;
-            animation: textGlow 3s ease-in-out infinite;
-            filter: drop-shadow(0 0 40px rgba(16, 185, 129, 0.8));
         }
 
-        @keyframes textGlow {
-            0%, 100% { filter: drop-shadow(0 0 40px rgba(16, 185, 129, 0.8)); }
-            50% { filter: drop-shadow(0 0 60px rgba(16, 185, 129, 1)); }
-        }
-
-        /* Subtitle */
         .event-subtitle {
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Orbitron';
             font-size: 36px;
             color: #6ee7b7;
-            text-transform: uppercase;
             letter-spacing: 6px;
             margin-bottom: 50px;
-            font-weight: 700;
         }
 
-        /* Mystery boxes */
         .mystery-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
-            margin: 60px 0;
         }
 
         .mystery-box {
-            background: rgba(16, 185, 129, 0.05);
-            border: 2px solid rgba(16, 185, 129, 0.3);
-            border-radius: 20px;
             padding: 40px 20px;
-            backdrop-filter: blur(10px);
-            transition: all 0.4s ease;
-            animation: boxFloat 4s ease-in-out infinite;
-        }
-
-        .mystery-box:nth-child(1) { animation-delay: 0s; }
-        .mystery-box:nth-child(2) { animation-delay: 0.5s; }
-        .mystery-box:nth-child(3) { animation-delay: 1s; }
-
-        @keyframes boxFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-
-        .mystery-box:hover {
-            transform: translateY(-20px) scale(1.05);
-            border-color: #10b981;
-            box-shadow: 0 20px 60px rgba(16, 185, 129, 0.4);
-            background: rgba(16, 185, 129, 0.1);
+            border: 2px solid rgba(16,185,129,0.3);
+            border-radius: 20px;
+            background: rgba(16,185,129,0.08);
         }
 
         .mystery-icon {
             font-size: 70px;
-            margin-bottom: 20px;
-            filter: drop-shadow(0 0 20px rgba(16, 185, 129, 0.6));
         }
 
         .mystery-label {
-            font-family: 'Russo One', sans-serif;
+            font-family: 'Russo One';
             font-size: 24px;
             color: #10b981;
-            text-transform: uppercase;
-            letter-spacing: 2px;
         }
 
-        /* Date reveal section */
         .date-section {
-            margin: 80px 0 60px;
+            margin: 80px 0;
             padding: 50px;
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(6, 182, 212, 0.1));
-            border: 3px solid rgba(16, 185, 129, 0.4);
+            border: 3px solid rgba(16,185,129,0.4);
             border-radius: 30px;
-            backdrop-filter: blur(20px);
-            box-shadow: 0 0 60px rgba(16, 185, 129, 0.3);
         }
 
         .date-label {
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Orbitron';
             font-size: 28px;
             color: #6ee7b7;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            margin-bottom: 20px;
         }
 
         .date-main {
-            font-family: 'Bungee', cursive;
+            font-family: 'Bungee';
             font-size: 90px;
-            font-weight: 900;
             color: #10b981;
-            text-shadow: 0 0 40px rgba(16, 185, 129, 0.8);
-            letter-spacing: 6px;
-            animation: datePulse 2s ease-in-out infinite;
         }
 
-        @keyframes datePulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        /* Teaser text */
         .teaser-text {
             font-size: 26px;
             color: #6ee7b7;
-            line-height: 1.8;
-            margin: 40px 0;
-            font-weight: 600;
-            letter-spacing: 1px;
         }
 
         .highlight {
             color: #10b981;
-            font-weight: 700;
             font-size: 30px;
         }
 
-        /* Stay tuned section */
         .stay-tuned {
             margin-top: 60px;
             padding: 40px;
-            background: rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(16,185,129,0.3);
             border-radius: 20px;
-            border: 2px solid rgba(16, 185, 129, 0.3);
         }
 
         .stay-tuned-title {
-            font-family: 'Russo One', sans-serif;
+            font-family: 'Russo One';
             font-size: 36px;
             color: #10b981;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            margin-bottom: 20px;
         }
 
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 25px;
+        /* ================= MOBILE ================= */
+        @media (max-width: 768px) {
+            body { padding: 0; }
+            .poster { width: 100%; min-height: 100vh; }
+            .institution-name { font-size: 22px; }
+            .club-badge { top: 160px; padding: 10px 30px; }
+            .club-badge-text { font-size: 18px; }
+            .main-content { padding: 100px 20px 40px; }
+            .coming-soon { font-size: 64px; }
+            .event-subtitle { font-size: 18px; }
+            .mystery-grid { grid-template-columns: 1fr; }
+            .date-main { font-size: 48px; }
+            .teaser-text { font-size: 16px; }
         }
-
-        .social-item {
-            font-size: 18px;
-            color: #6ee7b7;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .social-item:hover {
-            color: #10b981;
-            transform: translateY(-5px);
-        }
-
-        .social-icon {
-            font-size: 28px;
-            filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.6));
-        }
-
-        /* Question marks decoration */
-        .question-mark {
-            position: absolute;
-            font-size: 120px;
-            color: rgba(16, 185, 129, 0.1);
-            font-weight: 900;
-            animation: questionFloat 6s ease-in-out infinite;
-            z-index: 5;
-        }
-
-        @keyframes questionFloat {
-            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.1; }
-            50% { transform: translateY(-30px) rotate(15deg); opacity: 0.15; }
-        }
-
-        .q1 { top: 350px; left: 100px; animation-delay: 0s; }
-        .q2 { top: 500px; right: 80px; animation-delay: 1s; }
-        .q3 { bottom: 400px; left: 120px; animation-delay: 2s; }
-        .q4 { bottom: 300px; right: 100px; animation-delay: 3s; }
-
-        /* Lightning bolts */
-        .lightning {
-            position: absolute;
-            font-size: 60px;
-            color: rgba(16, 185, 129, 0.3);
-            animation: lightningBlink 3s ease-in-out infinite;
-            z-index: 5;
-        }
-
-        @keyframes lightningBlink {
-            0%, 100% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 0.8; transform: scale(1.2); }
-        }
-
-        .l1 { top: 280px; left: 200px; animation-delay: 0.5s; }
-        .l2 { top: 320px; right: 180px; animation-delay: 1.5s; }
-        .l3 { bottom: 250px; left: 150px; animation-delay: 2.5s; }
     </style>
 </head>
+
 <body>
-    <div class="poster">
-        <!-- Background effects -->
-        <div class="grid-bg"></div>
-        <div class="energy-orb orb-1"></div>
-        <div class="energy-orb orb-2"></div>
-        <div class="energy-orb orb-3"></div>
-        <div class="scanlines"></div>
+<div class="poster">
+    <div class="grid-bg"></div>
+    <div class="energy-orb orb-1"></div>
+    <div class="energy-orb orb-2"></div>
+    <div class="energy-orb orb-3"></div>
+    <div class="scanlines"></div>
 
-        <!-- Decorative elements -->
-        <div class="question-mark q1">?</div>
-        <div class="question-mark q2">?</div>
-        <div class="question-mark q3">?</div>
-        <div class="question-mark q4">?</div>
-        
-        <div class="lightning l1">⚡</div>
-        <div class="lightning l2">⚡</div>
-        <div class="lightning l3">⚡</div>
+    <div class="header">
+        <div class="institution-name">Siddhartha Academy</div>
+        <div class="institution-subtitle">of Higher Education</div>
+        <div class="institution-detail">An Institution Deemed to be University</div>
+    </div>
 
-        <!-- Header -->
-        <div class="header">
-            <div class="institution-name">Siddhartha Academy</div>
-            <div class="institution-subtitle">of Higher Education</div>
-            <div class="institution-detail">An Institution Deemed to be University</div>
+    <div class="club-badge">
+        <div class="club-badge-text">IETE CLUB</div>
+    </div>
+
+    <div class="main-content">
+        <div class="coming-soon">COMING<br>SOON</div>
+        <div class="event-subtitle">An Electrifying Event Awaits</div>
+
+        <div class="mystery-grid">
+            <div class="mystery-box">
+                <div class="mystery-icon">🎯</div>
+                <div class="mystery-label">Epic Competitions</div>
+            </div>
+            <div class="mystery-box">
+                <div class="mystery-icon">🏆</div>
+                <div class="mystery-label">Amazing Prizes</div>
+            </div>
+            <div class="mystery-box">
+                <div class="mystery-icon">🚀</div>
+                <div class="mystery-label">Tech Innovation</div>
+            </div>
         </div>
 
-        <!-- IETE Club Badge -->
-        <div class="club-badge">
-            <div class="club-badge-text">IETE CLUB</div>
+        <div class="date-section">
+            <div class="date-label">This January</div>
+            <div class="date-main">2026</div>
         </div>
 
-        <!-- Main content -->
-        <div class="main-content">
-            <div class="coming-soon">COMING<br>SOON</div>
-            <div class="event-subtitle">An Electrifying Event Awaits</div>
+        <div class="teaser-text">
+            Get ready for an <span class="highlight">unforgettable</span> experience!<br>
+            Innovation meets Excellence
+        </div>
 
-            <!-- Mystery boxes -->
-            <div class="mystery-grid">
-                <div class="mystery-box">
-                    <div class="mystery-icon">🎯</div>
-                    <div class="mystery-label">Epic<br>Competitions</div>
-                </div>
-                <div class="mystery-box">
-                    <div class="mystery-icon">🏆</div>
-                    <div class="mystery-label">Amazing<br>Prizes</div>
-                </div>
-                <div class="mystery-box">
-                    <div class="mystery-icon">🚀</div>
-                    <div class="mystery-label">Tech<br>Innovation</div>
-                </div>
-            </div>
-
-            <!-- Date section -->
-            <div class="date-section">
-                <div class="date-label">This January</div>
-                <div class="date-main">2026</div>
-            </div>
-
-            <!-- Teaser text -->
-            <div class="teaser-text">
-                Get ready for an <span class="highlight">unforgettable</span> experience!<br>
-                <span class="highlight">Innovation</span> meets <span class="highlight">Excellence</span>
-            </div>
-
-            <!-- Stay tuned -->
-            <div class="stay-tuned">
-                <div class="stay-tuned-title">Stay Tuned for Updates</div>
-                <div class="social-links">
-                    <div class="social-item">
-                        <span class="social-icon">📷</span>
-                        <span>@iete_sahe</span>
-                    </div>
-                </div>
-            </div>
+        <div class="stay-tuned">
+            <div class="stay-tuned-title">Stay Tuned</div>
+            <p>@iete_sahe</p>
         </div>
     </div>
+</div>
 </body>
 </html>
